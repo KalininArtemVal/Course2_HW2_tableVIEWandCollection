@@ -95,7 +95,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9iO-j8-GaV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="8" y="16" width="359" height="651"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="59W-Vs-IeQ" customClass="CustomFlowLayout" customModule="Course2Week3Task2" customModuleProvider="target"/>
                                 <cells/>
@@ -108,11 +108,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9iO-j8-GaV" secondAttribute="trailing" constant="8" id="3v0-D4-Rn0"/>
-                            <constraint firstAttribute="trailing" secondItem="9iO-j8-GaV" secondAttribute="trailing" id="6sQ-rs-GMu"/>
                             <constraint firstItem="9iO-j8-GaV" firstAttribute="top" secondItem="5Ja-Rr-rcr" secondAttribute="bottom" constant="16" id="YME-Sj-gPE"/>
                             <constraint firstItem="9iO-j8-GaV" firstAttribute="leading" secondItem="b6H-Hc-YTy" secondAttribute="leading" constant="8" id="kNf-BH-ufx"/>
-                            <constraint firstItem="9iO-j8-GaV" firstAttribute="top" secondItem="5Ja-Rr-rcr" secondAttribute="bottom" id="npU-2T-waJ"/>
-                            <constraint firstItem="9iO-j8-GaV" firstAttribute="leading" secondItem="b6H-Hc-YTy" secondAttribute="leading" id="p18-LH-KiT"/>
                             <constraint firstItem="KzD-yB-i2p" firstAttribute="top" secondItem="9iO-j8-GaV" secondAttribute="bottom" id="yNg-c2-lAy"/>
                         </constraints>
                     </view>
