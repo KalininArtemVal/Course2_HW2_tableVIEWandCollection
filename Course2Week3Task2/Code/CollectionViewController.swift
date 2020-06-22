@@ -10,15 +10,14 @@ import UIKit
 class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
-
+    
     override func viewDidLoad() {
         super .viewDidLoad()
         
         self.photoCollectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "collectionCellIdentifire")
         if let layout = photoCollectionView.collectionViewLayout as? CustomFlowLayout {
-          layout.delegete = self
+            layout.delegete = self
         }
-        photoCollectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     

@@ -11,7 +11,6 @@ protocol PhotoLayoutDelegete {
     // метод для запроса высоты фотографии
     func collectionView(_ collectionView: UICollectionView,
                         heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat
-    
 }
 
 class CustomFlowLayout: UICollectionViewLayout {
@@ -58,7 +57,6 @@ class CustomFlowLayout: UICollectionViewLayout {
         var yOffset: [CGFloat] = .init(repeating: 0, count: numberOfColumns)
         
         // 3
-        
         for item in 0..<collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
             
@@ -79,17 +77,24 @@ class CustomFlowLayout: UICollectionViewLayout {
             
             cache.append(attributes)
             
-//            if item == 0 {
-//                cache.append(firstAtribut)
-//            } else {
-//                cache.append(attributes)
-//            }
             // 6
             contentHeight = max(contentHeight, frame.maxY)
             
             yOffset[column] = yOffset[column] + height
             
-            column = column < (numberOfColumns - 1) ? (column + 1) : 0
+            //расположение ячеек в столбцах
+            switch item {
+            case 0:
+                column = 1
+            case 1:
+                column = 1
+            case 2:
+                column = 0
+            case 3:
+                column = 1
+            default:
+                column = column < (numberOfColumns - 1) ? (column + 1) : 0
+            }
         }
     }
     

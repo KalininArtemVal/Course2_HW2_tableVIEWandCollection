@@ -15,22 +15,18 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var imageTableView: UITableView!
     
-    
-    
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifire") as! PhotoCell
-    
+        
         let aOne = newArray[indexPath.row]
         
         cell.imageOne = aOne.image
         cell.title = aOne.name
-
+        
         return cell
     }
     

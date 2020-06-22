@@ -26,11 +26,11 @@ class PhotoCell: UITableViewCell {
             photoImage.image = image
         }
     }
-
+    
     @IBAction func infoButton(_ sender: Any) {
         print("Accessory selected")
     }
     
-
+    
     
 }
