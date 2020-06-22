@@ -57,64 +57,33 @@ class CustomFlowLayout: UICollectionViewLayout {
         var column = 0
         var yOffset: [CGFloat] = .init(repeating: 0, count: numberOfColumns)
         
-//        for i in 0..<numberOfColumns {
-//            switch i {
-//            case 0:
-//                yOffset.append(CGFloat(100))
-//            default:
-//                yOffset.append(CGFloat(0))
-//            }
-//        }
-            
-            // (изначальные параметры) .init(repeating: 0, count: numberOfColumns)
-        
         // 3
         
         for item in 0..<collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
             
             // 4 Устанавливаем высоту ячеек
-            //4.1 приравниваем к высоте ячейки к высоте фото по индексу
             
-            //let photoHeight = delegete.collectionView(collectionView, heightForPhotoAtIndexPath: indexPath)
-            
-            //4.2.1 создаём высоту кастомной ячейки
-            let height = CGFloat(200) //cellPadding * 2 + photoHeight
+            //4.2.1 Устанавливаем высоту кастомной ячейки
+            let height: CGFloat = (indexPath.item == 0 ? 300 : 200)
             //4.2.2 устанавливаем фрейм ячеек
             let frame = CGRect(x: xOffset[column],
                                y: yOffset[column],
                                width: columnWidth,
                                height: height)
             let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
-            //---------
-            //4.3.1 создаём высоту первой кастомной ячейки
-            let firstPhotoHeight = CGFloat(300)
-            //4.3.2 устанавливаем фрейм первой ячейки
-            let firstPhotoframe = CGRect(x: xOffset[column],
-                                         y: yOffset[column],
-                                         width: columnWidth,
-                                         height: firstPhotoHeight)
-            let insetFirstFrame = firstPhotoframe.insetBy(dx: cellPadding, dy: cellPadding)
-            
-            let firstAtribut = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            firstAtribut.frame = insetFirstFrame
-            
-            
-            
-            //cache.append(firstAtribut)
-            //----------
             
             // 5
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = insetFrame
             
-            //cache.append(attributes)
+            cache.append(attributes)
             
-            if item == 0 {
-                cache.append(firstAtribut)
-            } else {
-                cache.append(attributes)
-            }
+//            if item == 0 {
+//                cache.append(firstAtribut)
+//            } else {
+//                cache.append(attributes)
+//            }
             // 6
             contentHeight = max(contentHeight, frame.maxY)
             
