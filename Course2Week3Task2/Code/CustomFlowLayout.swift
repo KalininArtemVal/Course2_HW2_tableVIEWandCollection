@@ -55,20 +55,21 @@ class CustomFlowLayout: UICollectionViewLayout {
             xOffset.append(CGFloat(column) * columnWidth)
         }
         var column = 0
-        var yOffset: [CGFloat] = []
+        var yOffset: [CGFloat] = .init(repeating: 0, count: numberOfColumns)
         
-        for i in 0..<numberOfColumns {
-            switch i {
-            case 0:
-                yOffset.append(CGFloat(100))
-            default:
-                yOffset.append(CGFloat(0))
-            }
-        }
+//        for i in 0..<numberOfColumns {
+//            switch i {
+//            case 0:
+//                yOffset.append(CGFloat(100))
+//            default:
+//                yOffset.append(CGFloat(0))
+//            }
+//        }
             
             // (изначальные параметры) .init(repeating: 0, count: numberOfColumns)
         
         // 3
+        
         for item in 0..<collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
             
@@ -98,14 +99,22 @@ class CustomFlowLayout: UICollectionViewLayout {
             let firstAtribut = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             firstAtribut.frame = insetFirstFrame
             
-            cache.append(firstAtribut)
+            
+            
+            //cache.append(firstAtribut)
             //----------
             
             // 5
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = insetFrame
             
-            cache.append(attributes)
+            //cache.append(attributes)
+            
+            if item == 0 {
+                cache.append(firstAtribut)
+            } else {
+                cache.append(attributes)
+            }
             // 6
             contentHeight = max(contentHeight, frame.maxY)
             
