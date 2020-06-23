@@ -17,6 +17,7 @@ class CustomFlowLayout: UICollectionViewLayout {
     
     // 1 Ссылка на делегат
     var delegete: PhotoLayoutDelegete!
+    
     // 2 Ннастройка макета: количество столбцов и дистанция между ними.
     private let numberOfColumns = 2
     private let cellPadding: CGFloat = 8
@@ -26,7 +27,6 @@ class CustomFlowLayout: UICollectionViewLayout {
     
     // 4 Объявляет два свойства для хранения размера содержимого.
     private var contentHeight: CGFloat = 0
-    
     private var contentWidth: CGFloat {
         guard let collectionView = collectionView else {
             return 0
@@ -41,12 +41,14 @@ class CustomFlowLayout: UICollectionViewLayout {
     }
     
     override func prepare() {
+        
         // 1 проверка на наличие обьектов в массиве кэш
         guard cache.isEmpty,
             let collectionView = collectionView
             else {
                 return
         }
+        
         // 2 ширина и высота столбца
         let columnWidth = contentWidth / CGFloat(numberOfColumns)
         var xOffset: [CGFloat] = []
@@ -60,8 +62,6 @@ class CustomFlowLayout: UICollectionViewLayout {
         for item in 0..<collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
             
-            // 4 Устанавливаем высоту ячеек
-            
             //4.2.1 Устанавливаем высоту кастомной ячейки
             let height: CGFloat = (indexPath.item == 0 ? 300 : 200)
             //4.2.2 устанавливаем фрейм ячеек
@@ -74,7 +74,6 @@ class CustomFlowLayout: UICollectionViewLayout {
             // 5
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = insetFrame
-            
             cache.append(attributes)
             
             // 6
@@ -101,7 +100,6 @@ class CustomFlowLayout: UICollectionViewLayout {
     override func layoutAttributesForElements(in rect: CGRect)
         -> [UICollectionViewLayoutAttributes]? {
             var visibleLayoutAttributes: [UICollectionViewLayoutAttributes] = []
-            
             for attributes in cache {
                 if attributes.frame.intersects(rect) {
                     visibleLayoutAttributes.append(attributes)
@@ -115,7 +113,6 @@ class CustomFlowLayout: UICollectionViewLayout {
         -> UICollectionViewLayoutAttributes? {
             return cache[indexPath.item]
     }
-    
 }
 
 

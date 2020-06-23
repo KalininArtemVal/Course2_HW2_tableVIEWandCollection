@@ -13,7 +13,6 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidLoad() {
         super .viewDidLoad()
-        
         self.photoCollectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "collectionCellIdentifire")
         if let layout = photoCollectionView.collectionViewLayout as? CustomFlowLayout {
             layout.delegete = self
